@@ -17,8 +17,9 @@
   },
   "homepage": "https://github.com/AbbyArsenic/NexGen-Calcs-Server#readme",
   "dependencies": {
-    "auth0-api-jwt-rsa-validation": "0.0.1",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "express-jwt": "^5.3.0"
+    "mongoose": "^4.13.7",
+    "morgan": "^1.9.0"
   }
 }
