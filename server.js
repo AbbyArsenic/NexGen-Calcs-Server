@@ -26,13 +26,6 @@ mongoose.connect("mongodb://localhost/nexgencalc", {
 // ------------------
 // ROUTES
 // ------------------
-app.get('/testing', function(req, res) {
-  // info to provide
-  const data = 'testing 123';
-
-  // send info back to client
-  res.send(data);
-});
 
 app.get('/users', function(req, res) {
   User.find({}, function(error, found) {
@@ -44,7 +37,11 @@ app.get('/users', function(req, res) {
   });
 });
 
-app.post("/submit", function(req, res) {
+app.get('/login', function(req, res) {
+  
+});
+
+app.post("/register", function(req, res) {
   User.create(req.body)
     .then(function(dbUser) {
       res.json(dbUser); 
@@ -53,6 +50,7 @@ app.post("/submit", function(req, res) {
       res.json(err);
     });
 });
+
 
 // SERVER LISTENING
 app.listen(PORT, function() {
