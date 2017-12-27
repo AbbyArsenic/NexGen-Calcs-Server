@@ -6,10 +6,12 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 
-const PORT = 8080;
+const PORT = (process.env.PORT || 8080);
 
 const User = require("./userModel.js");
 const app = express();
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nexgencalc";
 
 // Middleware
 app.use(logger("dev"));
@@ -19,7 +21,7 @@ app.use(bodyParser.urlencoded({
 
 // Database configuration
 mongoose.Promise = Promise; 
-mongoose.connect("mongodb://localhost/nexgencalc", {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 
@@ -38,7 +40,7 @@ app.get('/users', function(req, res) {
 });
 
 app.get('/login', function(req, res) {
-  
+
 });
 
 app.post("/register", function(req, res) {
